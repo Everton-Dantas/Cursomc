@@ -3,12 +3,13 @@ package com.educandoweb.curso.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.educandoweb.curso.domain.Categoria;
+import com.educandoweb.curso.domain.Produto;
 
 @Repository
-public interface  CategoriaRepository extends JpaRepository<Categoria, Integer> {
+public interface  ProdutoRepository extends JpaRepository<Produto, Integer> {
 
 
+	
 
 
 	
