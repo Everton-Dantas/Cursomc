@@ -8,23 +8,29 @@ import org.springframework.stereotype.Service;
 import com.educandoweb.curso.domain.Categoria;
 import com.educandoweb.curso.repositories.CategoriaRepository;
 
+import javassist.tools.rmi.ObjectNotFoundException;
+
 @Service
 public class CategoriaService {
 
 	@Autowired
 	private CategoriaRepository repo;
 	
-	public Categoria find(Integer id) {
+	public Categoria find(Integer id) throws ObjectNotFoundException {
 		 Optional<Categoria> obj = repo.findById(id);
-		return obj.orElse(null);
+		return obj.orElseThrow(() -> new ObjectNotFoundException(
+		 "Objeto não encontrado! Id: " + id + ", Tipo: " + Categoria.class.getName())); 
 	}
 
 	public Categoria buscar(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
+	}
 	
 	
-}
+
 		
 
